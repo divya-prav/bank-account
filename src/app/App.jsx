@@ -5,15 +5,15 @@ import store from "./store";
 
 import "./app.css";
 
-// TODO: Import the Redux store and provide it to this component using <Provider>.
+// Import the Redux store and provide it to this component using <Provider>.
 const App = () => {
   return (
     <Provider store={store}>
-    <main>
-      <h1>Bank Account</h1>
-      <Transactions />
-      <TransactionHistory />
-    </main>
+      <main>
+        <h1>Bank Account</h1>
+        <Transactions />
+        <TransactionHistory />
+      </main>
     </Provider>
   );
 };

@@ -9,13 +9,15 @@ import { withdrawal,deposit,transfer } from "./transactionsSlice";
  * Allows users to deposit to, withdraw from, and transfer money from their account.
  */
 export default function Transactions() {
-  // TODO: Get the balance from the Redux store using the useSelector hook
+  //  Get the balance from the Redux store using the useSelector hook
   const balance = useSelector((state)=> state.transactions.balance);
   const dispatch = useDispatch();
 
   const [amountStr, setAmountStr] = useState(0);
-  const [error,setError] = useState(null)
+  const [error,setError] = useState(null);
+  const [recipient,setRecipient] = useState("");
 
+  
    const inputHandle = (e) =>{
     
     if(e.target.value <= balance){
@@ -42,7 +44,7 @@ export default function Transactions() {
     
    
     
-    // TODO: Dispatch the appropriate transaction action based on `action`
+    // Dispatch the appropriate transaction action based on `action`
     if(action === 'deposit'){
      
        dispatch(deposit({amount:amount}))
@@ -52,14 +54,14 @@ export default function Transactions() {
       
     }
     if(action === 'transfer' && balance >= amount){
-      dispatch(transfer({amount:amount}))
+      dispatch(transfer({amount:amount,name:recipient}))
     }
   };
 
   return (
     <section className="transactions container">
       <h2>Transactions</h2>
-      {error && <p style={{color:'red',alignItems:'center'}}>{error}</p>}
+      <figcaption>{error && <p style={{color:'red',fontWeight: 700}}>{error}</p>}</figcaption>
       <figure>
          
         <figcaption>Current Balance &nbsp;</figcaption>
@@ -89,7 +91,11 @@ export default function Transactions() {
         <div className="form-row">
           <label>
             Transfer to
-            <input type="text" placeholder="Recipient Name" name="recipient" />
+            <input 
+            type="text" 
+            placeholder="Recipient Name"
+             value={recipient} 
+             onChange={(e)=>setRecipient(e.target.value)} />
           </label>
           <button name="transfer">Transfer</button>
         </div>
