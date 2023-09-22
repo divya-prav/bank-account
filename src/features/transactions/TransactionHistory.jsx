@@ -4,8 +4,8 @@ import { selectHistory } from "./transactionsSlice";
 import { useSelector } from "react-redux";
 
 /** Displays a table row with transaction information  */
-const TransactionRow = ({ type, amount, balance }) => (
-  <tr>
+const TransactionRow = ({id, type, amount, balance }) => (
+  <tr key={id}>
     <th scope="row">{type}</th>
     <td>{amount.toFixed(2)}</td>
     <td>{balance.toFixed(2)}</td>
@@ -16,7 +16,7 @@ const TransactionRow = ({ type, amount, balance }) => (
 export default function TransactionHistory() {
   // Get the transaction history from the Redux store using the useSelector hook
   const history = useSelector(selectHistory);
-
+  console.log(history);
   const [showHistory, setShowHistory] = useState(false);
 
   return (

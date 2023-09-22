@@ -8,6 +8,9 @@ import { createSlice } from "@reduxjs/toolkit";
  * @property {number} balance - The balance after the transaction is completed.
  */
 
+const genrateTransactionId = () =>{
+  return Math.floor(Math.random()*1000);
+}
 
 
 /** @type {{balance: number, history: Transaction[]}} */
@@ -24,7 +27,7 @@ const transactionsSlice = createSlice({
     withdrawal: (state, { payload }) => {
       state.balance -= payload.amount;
       state.history.push({
-        
+        id:genrateTransactionId(),
         type: "Withdrawal",
         amount: payload.amount,
         balance: state.balance,
@@ -33,7 +36,7 @@ const transactionsSlice = createSlice({
     deposit:(state,{ payload}) => {
       state.balance += payload.amount;
       state.history.push({
-        id:history.length,
+        id:genrateTransactionId(),
         type:"Deposit",
         amount:payload.amount,
         balance:state.balance,
@@ -44,6 +47,7 @@ const transactionsSlice = createSlice({
     transfer:(state,{payload})=>{
       state.balance -=payload.amount;
       state.history.push({
+        id:genrateTransactionId(),
         type:"Transfer to "+payload.name,
         amount:payload.amount,
         balance:state.balance
