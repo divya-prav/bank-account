@@ -45,7 +45,7 @@ export default function Transactions() {
    
     
     // Dispatch the appropriate transaction action based on `action`
-    if(action === 'deposit'){
+    if(action === 'deposit' && amount > 0){
      
        dispatch(deposit({amount:amount}))
     }
@@ -74,7 +74,7 @@ export default function Transactions() {
             <input
               type="number"
               inputMode="decimal"
-              min={0}
+              min={1}
               step="0.01"
               value={amountStr}
               onChange={inputHandle}

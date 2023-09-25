@@ -9,8 +9,18 @@
     margin-bottom: 0.5rem;
   }
 
-  input,
-  button {
+  input{
     margin: 0 0.5rem;
+    padding: 5px;
+  }
+  button {
+  
+    margin : 5px; 
+    padding: 5px ;
+    background-color:#3085C3;
+    color:white;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    width:80px
   }
 }

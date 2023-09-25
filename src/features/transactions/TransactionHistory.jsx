@@ -16,18 +16,16 @@ const TransactionRow = ({id, type, amount, balance }) => (
 export default function TransactionHistory() {
   // Get the transaction history from the Redux store using the useSelector hook
   const history = useSelector(selectHistory);
-  console.log(history);
-  const [showHistory, setShowHistory] = useState(false);
+  const [showHistory, setShowHistory] = useState(true);
 
   return (
     <section className="transactions-history container">
       <div>
         <h2 style={{ display: "inline-block" }}>Transaction History</h2>
         <button
-          style={{ float: "right", margin: "5px", padding: "5px" }}
           onClick={() => setShowHistory(!showHistory)}
         >
-          Show History
+        {showHistory ? "Hide Logs":"Show Logs"}
         </button>
       </div>
       {showHistory && (
