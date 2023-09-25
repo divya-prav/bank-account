@@ -56,6 +56,7 @@ In this workshop, you will be implementing a simple bank account application. A 
     7. Depends on the action made by the user , call the appropriate action from the transaction reducer.
    
  ### TractionHistory.jsx
+ 
    1. Import the useSelector from react-redux
    2. Import the selectHistory from transactionSlice
    3. map the history array.
@@ -64,14 +65,8 @@ In this workshop, you will be implementing a simple bank account application. A 
    
     
 
-1. Complete the slice defined in `transactionsSlice.js`.
-2. Configure the store to use that slice in `store.js`.
-3. Provide the store to the app in `App.jsx`.
-4. Correctly exchange information with the store in `Transactions.jsx`.
-5. Complete `TransactionHistory.jsx`.
-6. Manually test your application to make sure everything works!
 
-The [Redux Toolkit Documentation](https://redux-toolkit.js.org/introduction/getting-started) is a great place to reference! Their example code isn't too different from the code you're working with here.
+
 
 ## Extensions
 
