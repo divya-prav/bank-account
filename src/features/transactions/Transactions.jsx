@@ -46,16 +46,21 @@ export default function Transactions() {
     
     // Dispatch the appropriate transaction action based on `action`
     if(action === 'deposit' && amount > 0){
-     
+
        dispatch(deposit({amount:amount}))
+       setAmountStr(0);
     }
     if(action === 'withdrawal' && balance >= amount){
        dispatch(withdrawal({amount:amount}))
+       setAmountStr(0);
       
     }
     if(action === 'transfer' && balance >= amount){
       dispatch(transfer({amount:amount,name:recipient}))
+      setAmountStr(0);
+      setRecipient("");
     }
+    
   };
 
   return (
