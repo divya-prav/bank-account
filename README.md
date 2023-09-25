@@ -39,11 +39,11 @@ In this workshop, you will be implementing a simple bank account application. A 
 
  ### App.jsx
   
-   1.Import store from store.js file
+    1.Import store from store.js file
 
-   2.Import Provider from react-redux
+    2.Import Provider from react-redux
 
-   3.Provide the store and <Provider> to the App component.
+    3.Provide the store and <Provider> to the App component.
 
  ### Transaction.jsx
 
@@ -57,11 +57,11 @@ In this workshop, you will be implementing a simple bank account application. A 
    
  ### TractionHistory.jsx
  
-   1. Import the useSelector from react-redux
-   2. Import the selectHistory from transactionSlice
-   3. map the history array.
-   4. To get the last transaction on top reverse the array.
-   5. Return the TractionRow for each array.
+    1. Import the useSelector from react-redux
+    2. Import the selectHistory from transactionSlice
+    3. map the history array.
+    4. To get the last transaction on top reverse the array.
+    5. Return the TractionRow for each array.
    
     
 
